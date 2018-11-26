@@ -8,7 +8,7 @@ public class Search {
     private static String XML_PATH ="src/assignment/Webshop.xml";
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Webshop.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();

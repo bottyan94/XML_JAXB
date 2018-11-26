@@ -10,7 +10,7 @@ public class Delete {
     private static String XML_PATH ="src/assignment/Webshop.xml";
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Webshop.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -46,7 +46,7 @@ public class Delete {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 
-            // Marshal the employees list in file
+            // Marshal the webshop list in file
             jaxbMarshaller.marshal(webshop, new File(XML_PATH));
 
         } catch (Exception e) {

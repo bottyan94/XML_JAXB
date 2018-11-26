@@ -6,9 +6,9 @@ import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.util.ArrayList;
 
-//https://howtodoinjava.com/jaxb/jaxb-exmaple-marshalling-and-unmarshalling-list-or-set-of-objects/
+
 public class Marshal_ListToXML {
-    //Initialize the employees list
+
     private static String XML_PATH = "src/assignment/Webshop.xml";
 
     private static void marshalingExample() throws JAXBException {
@@ -16,7 +16,7 @@ public class Marshal_ListToXML {
         Webshop webshop = new Webshop();
 
         webshop.setWebshop(new ArrayList<Vevo_adatok>());
-        //Create two employees
+        //Create two webshop
         Vevo_adatok vevo_adatok = new Vevo_adatok();
         vevo_adatok.setVid(1);
         vevo_adatok.setNév("Bottyán Tamás");
@@ -37,10 +37,10 @@ public class Marshal_ListToXML {
 
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        //Marshal the employees list in console
+        //Marshal the webshop list in console
         jaxbMarshaller.marshal(webshop, System.out);
 
-        //Marshal the employees list in file
+        //Marshal the webshop list in file
         jaxbMarshaller.marshal(webshop, new File(XML_PATH));
     }
 
