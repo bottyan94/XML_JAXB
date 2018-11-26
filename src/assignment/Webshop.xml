@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webshop>
+    <vevoAdatok>
+        <Vid>1</Vid>
+        <Név>Bottyán Tamás</Név>
+        <Cím>3780, Edelény, Katona József út 74.</Cím>
+        <Kor>24</Kor>
+        <Email>bottyan94@gmail.com</Email>
+        <Tel>+36308990872</Tel>
+        <isDeleted>false</isDeleted>
+    </vevoAdatok>
+    <vevoAdatok>
+        <Vid>3</Vid>
+        <Név>Teszt átírás</Név>
+        <Cím>1111 Valahol</Cím>
+        <Kor>20</Kor>
+        <Email>valami@valami.hu</Email>
+        <Tel>111111</Tel>
+        <isDeleted>false</isDeleted>
+    </vevoAdatok>
+    <vevoAdatok>
+        <Vid>3</Vid>
+        <Név>Teszt átírás</Név>
+        <Cím>1111 Valahol</Cím>
+        <Kor>20</Kor>
+        <Email>valami@valami.hu</Email>
+        <Tel>111111</Tel>
+        <isDeleted>false</isDeleted>
+    </vevoAdatok>
+</webshop>
