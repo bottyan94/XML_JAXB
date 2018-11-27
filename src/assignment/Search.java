@@ -16,12 +16,12 @@ public class Search {
     private static String XML_PATH = "src/assignment/Webshop.xml";
 
     public static void main(String[] args) {
-
+            WebshopT webshopT= new WebshopT();
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(WebshopT.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-            WebshopT webshopT=(WebshopT) jaxbUnmarshaller.unmarshal(new File(XML_PATH));
+            //UnMarshal
+            webshopT=UnMarshal_XMLToList.XMLToList();
+
             System.out.println("-------------------------- ");
             System.out.println("Id alapján szűrés: ");
             for (Rendeles rendeles : webshopT.getRendelesAdatok()) {

@@ -7,10 +7,10 @@
         <Tel>12345567890</Tel>
     </Vevo_adatok>
     <Vevo_adatok Vid="0">
-        <Nev>Teszt átírás</Nev>
-        <Kor>20</Kor>
-        <Email>valami@valami.hu</Email>
-        <Tel>111111</Tel>
+        <Nev>Teszt Hozzáadás</Nev>
+        <Kor>1</Kor>
+        <Email>asd@asddsadsa.com</Email>
+        <Tel>123</Tel>
     </Vevo_adatok>
     <Termek_adatok Tid="1">
         <Megnevezes>Hell</Megnevezes>
@@ -25,7 +25,7 @@
     <Rendeles_adatok Rszam="1" VevoId="1" TermekId="1">
         <Leiras>Teszt</Leiras>
     </Rendeles_adatok>
-    <Rendeles_adatok Rszam="11" VevoId="0" TermekId="3">
+    <Rendeles_adatok Rszam="11" VevoId="1" TermekId="1">
         <Leiras>Csoki vétel</Leiras>
     </Rendeles_adatok>
 </webshop_t>

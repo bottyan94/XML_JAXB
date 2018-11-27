@@ -11,52 +11,75 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.util.ArrayList;
 
 public class New {
     private static String XML_PATH = "src/assignment/Webshop.xml";
 
     public static void main(String[] args) {
-
+        WebshopT webshopT= new WebshopT();
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(WebshopT.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-            // We had written this file in marshalling example
-            WebshopT webshopT = (WebshopT) jaxbUnmarshaller.unmarshal(new File(XML_PATH));
+            webshopT=UnMarshal_XMLToList.XMLToList();
 
+            webshopT.setRendelesAdatok(new ArrayList<Rendeles>());
+            Rendeles rendeles = new Rendeles();
+            rendeles.setRszam("1");
+            rendeles.setDatum(null);
+            rendeles.setLeiras("Teszt");
+            rendeles.setTermekId("1");
+            rendeles.setVevoId("1");
+            webshopT.getRendelesAdatok().add(rendeles);
+            System.out.println(rendeles.getLeiras());
+
+            webshopT.setTermekAdatok(new ArrayList<Termek>());
+            Termek termek = new Termek();
+            termek.setTid("1");
+            termek.setMegnevezes("Hell");
+            termek.setLeiras("Energiaital");
+            termek.setAr("200");
+            webshopT.getTermekAdatok().add(termek);
+            System.out.println(termek.getMegnevezes());
+
+            webshopT.setVevoAdatok(new ArrayList<Vevo>());
             Vevo vevo = new Vevo();
-            vevo.setNev("Teszt Hozzáadás");
-            vevo.setKor(1);
-            vevo.setTel("123");
-            vevo.setEmail("asd@asddsadsa.com");
+            vevo.setVid("1");
+            vevo.setNev("Bottyán Tamás");
+            vevo.setKor(24);
             vevo.setCim(null);
-            vevo.setVid("0");
+            vevo.setEmail("asd@asd.com");
+            vevo.setTel("12345567890");
             webshopT.getVevoAdatok().add(vevo);
 
-            Termek termek = new Termek();
-            termek.setLeiras("Csoki");
-            termek.setMegnevezes("Csokito rondade finom");
-            termek.setAr("250");
-            termek.setTid("3");
-            webshopT.getTermekAdatok().add(termek);
+            Vevo vevo1 = new Vevo();
+            System.out.println(vevo.getNev());
+            vevo1.setNev("Teszt Hozzáadás");
+            vevo1.setKor(1);
+            vevo1.setTel("123");
+            vevo1.setEmail("asd@asddsadsa.com");
+            vevo1.setCim(null);
+            vevo1.setVid("0");
+            webshopT.getVevoAdatok().add(vevo1);
 
-            Rendeles rendeles = new Rendeles();
-            rendeles.setLeiras("Csoki vétel");
-            rendeles.setVevoId(vevo.getVid());
-            rendeles.setTermekId(termek.getTid());
-            rendeles.setDatum(null);
-            rendeles.setRszam("11");
-            webshopT.getRendelesAdatok().add(rendeles);
+            Termek termek1 = new Termek();
+            termek1.setLeiras("Csoki");
+            termek1.setMegnevezes("Csokito rondade finom");
+            termek1.setAr("250");
+            termek1.setTid("3");
+            webshopT.getTermekAdatok().add(termek1);
+
+            Rendeles rendeles1 = new Rendeles();
+            rendeles1.setLeiras("Csoki vétel");
+            rendeles1.setVevoId(vevo.getVid());
+            rendeles1.setTermekId(termek.getTid());
+            rendeles1.setDatum(null);
+            rendeles1.setRszam("11");
+            webshopT.getRendelesAdatok().add(rendeles1);
 
 
-            jaxbContext = JAXBContext.newInstance(WebshopT.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            Marshal_ListToXML.marshalingListToXML(webshopT);
 
 
-            // Marshal the webshop list in file
-            jaxbMarshaller.marshal(webshopT, new File(XML_PATH));
 
         } catch (Exception e) {
             e.printStackTrace();

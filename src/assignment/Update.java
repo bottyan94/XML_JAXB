@@ -14,20 +14,17 @@ public class Update {
     private static String XML_PATH = "src/assignment/Webshop.xml";
 
     public static void main(String[] args) {
-
+        WebshopT webshopT =new WebshopT();
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(WebshopT.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-
-            // We had written this file in marshalling example
-            WebshopT webshopT = (WebshopT) jaxbUnmarshaller.unmarshal(new File(XML_PATH));
-
+            webshopT=UnMarshal_XMLToList.XMLToList();
 
             for (Vevo vevo : webshopT.getVevoAdatok()) {
-                if (vevo.getVid().equals("3")) {
+                if (vevo.getVid().equals("1")) {
                     Vevo vevo1 =vevo;
+
+
                     System.out.println("Mit: "+vevo1.getVid());
-                    vevo1.setVid("0");
+                    vevo1.setVid("3");
                     System.out.println("Mire: "+vevo1.getVid());
                     System.out.println("Mit: "+vevo1.getNev());
                     vevo1.setNev("Teszt átírás");
@@ -49,14 +46,7 @@ public class Update {
                 }
             }
 
-            jaxbContext = JAXBContext.newInstance(WebshopT.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-
-            // Marshal the webshop list in file
-            jaxbMarshaller.marshal(webshopT, new File(XML_PATH));
+            Marshal_ListToXML.marshalingListToXML(webshopT);
 
         } catch (Exception e) {
             e.printStackTrace();
