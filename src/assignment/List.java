@@ -7,13 +7,8 @@ import assignment.model.Termek;
 import assignment.model.Vevo;
 import assignment.model.WebshopT;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
 
 public class List {
-    private static String XML_PATH = "src/assignment/Webshop.xml";
-
     public static void main(String[] args) {
         WebshopT webshopT = new WebshopT();
         try {
@@ -49,11 +44,12 @@ public class List {
                 System.out.println("Vevő id: " + rendeles.getVevoId());
 
 
-            } }catch(Exception e){
-                e.printStackTrace();
             }
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-
     }
+
+
+}

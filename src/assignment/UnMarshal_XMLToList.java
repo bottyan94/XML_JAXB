@@ -12,7 +12,7 @@ public class UnMarshal_XMLToList {
     private static String XML_PATH = "src/assignment/Webshop.xml";
 
     public static WebshopT XMLToList() {
-        WebshopT webshopT= new WebshopT();
+        WebshopT webshopT = new WebshopT();
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(WebshopT.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();

@@ -1,26 +1,20 @@
 package assignment;
 
 
-
 import assignment.model.Rendeles;
 import assignment.model.Termek;
 import assignment.model.Vevo;
 import assignment.model.WebshopT;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
+
 import java.util.ArrayList;
 
 public class New {
-    private static String XML_PATH = "src/assignment/Webshop.xml";
-
     public static void main(String[] args) {
-        WebshopT webshopT= new WebshopT();
+        WebshopT webshopT = new WebshopT();
         try {
 
-            webshopT=UnMarshal_XMLToList.XMLToList();
+            webshopT = UnMarshal_XMLToList.XMLToList();
 
             webshopT.setRendelesAdatok(new ArrayList<Rendeles>());
             Rendeles rendeles = new Rendeles();
@@ -78,7 +72,6 @@ public class New {
 
 
             Marshal_ListToXML.marshalingListToXML(webshopT);
-
 
 
         } catch (Exception e) {

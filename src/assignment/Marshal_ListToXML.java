@@ -1,13 +1,11 @@
 package assignment;
 
 import assignment.model.*;
-import com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
-import java.util.ArrayList;
 
 
 public class Marshal_ListToXML {
