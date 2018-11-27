@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+ 
+    <xs:element name="Webshop" type="Webshop_t">
+        <xs:key name="Vevo">
+            <xs:selector xpath="Vevo_adatok"/>
+            <xs:field xpath="@Vid"/>
+        </xs:key>
+        <xs:key name="Termek">
+            <xs:selector xpath="Termek_adatok"></xs:selector>
+            <xs:field xpath="@Tid"></xs:field>
+        </xs:key>
+        <xs:key name="Rendeles">
+            <xs:selector xpath="Rendeles_adatok"></xs:selector>
+            <xs:field xpath="@Rszam"></xs:field>
+        </xs:key>
+        
+        <xs:keyref refer="Vevo" name="vevoid">
+            <xs:selector xpath="Rendeles_adatok"></xs:selector>
+            <xs:field xpath="@VevoId"></xs:field>
+        </xs:keyref>
+        
+        <xs:keyref refer="Termek" name="termekid">
+            <xs:selector xpath="Termek_adatok"/>
+            <xs:field xpath="@TermekId"></xs:field>
+        </xs:keyref>  
+    </xs:element>
+   
+    <xs:complexType name="Webshop_t">
+        <xs:sequence>
+            <xs:element name="Vevo_adatok" type="Vevo" maxOccurs="unbounded"/>
+            <xs:element name="Termek_adatok" type="Termek" maxOccurs="unbounded"/>
+            <xs:element name="Rendeles_adatok" type="Rendeles" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+     <xs:complexType name="Vevo"  >
+        <xs:all>
+            <xs:element name="Nev" type="xs:string"/>
+            <xs:element name="Cim">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Irsz" type="xs:string"/>
+                        <xs:element name="Varos" type="xs:string"/>
+                        <xs:element name="Utca" type="xs:string"/>
+                        <xs:element name="Hsz" type="xs:string"/>
+                    </xs:sequence>
+                 </xs:complexType>
+            </xs:element>
+            <xs:element name="Kor">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="18"/>
+                        <xs:maxInclusive value="120"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Email" type="xs:string"/>
+            <xs:element name="Tel"  type="xs:string"/>
+        </xs:all>
+        <xs:attribute name="Vid" type="xs:string" use="required"  />     
+    </xs:complexType>
+    
+    <xs:complexType name="Termek">
+        <xs:sequence>
+            <xs:element name="Megnevezes" type="xs:string"/>
+            <xs:element name="Leiras" type="xs:string"/>
+            <xs:element name="Ar" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="Tid" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="Rendeles">
+        <xs:sequence>
+            <xs:element name="Datum" type="xs:date"/>
+            <xs:element name="Leiras">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Utanvetel"/>
+                        <xs:enumeration value="Szemelyes"/>
+                        <xs:enumeration value="Eloreutalás"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="Rszam" type="xs:string" use="required"/>
+        <xs:attribute name="VevoId" type="xs:string" use="required"/>
+        <xs:attribute name="TermekId" type="xs:string" use="required"/>
+    
+    </xs:complexType>
+    
+
+</xs:schema>
