@@ -1,5 +1,8 @@
 package assignment;
 
+import assignment.model.Vevo_adatok;
+import assignment.model.Webshop;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
