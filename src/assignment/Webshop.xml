@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<webshop>
-    <vevoAdatok>
-        <Vid>1</Vid>
-        <Név>Bottyán Tamás</Név>
-        <Cím>3780, Edelény, Katona József út 74.</Cím>
+<webshop_t>
+    <Vevo_adatok Vid="1">
+        <Nev>Bottyán Tamás</Nev>
         <Kor>24</Kor>
-        <Email>bottyan94@gmail.com</Email>
-        <Tel>+36308990872</Tel>
-        <isDeleted>false</isDeleted>
-    </vevoAdatok>
-    <vevoAdatok>
-        <Vid>3</Vid>
-        <Név>Teszt átírás</Név>
-        <Cím>1111 Valahol</Cím>
+        <Email>asd@asd.com</Email>
+        <Tel>12345567890</Tel>
+    </Vevo_adatok>
+    <Vevo_adatok Vid="0">
+        <Nev>Teszt átírás</Nev>
         <Kor>20</Kor>
         <Email>valami@valami.hu</Email>
         <Tel>111111</Tel>
-        <isDeleted>false</isDeleted>
-    </vevoAdatok>
-    <vevoAdatok>
-        <Vid>3</Vid>
-        <Név>Teszt átírás</Név>
-        <Cím>1111 Valahol</Cím>
-        <Kor>20</Kor>
-        <Email>valami@valami.hu</Email>
-        <Tel>111111</Tel>
-        <isDeleted>false</isDeleted>
-    </vevoAdatok>
-</webshop>
+    </Vevo_adatok>
+    <Termek_adatok Tid="1">
+        <Megnevezes>Hell</Megnevezes>
+        <Leiras>Energiaital</Leiras>
+        <Ar>200</Ar>
+    </Termek_adatok>
+    <Termek_adatok Tid="3">
+        <Megnevezes>Csokito rondade finom</Megnevezes>
+        <Leiras>Csoki</Leiras>
+        <Ar>250</Ar>
+    </Termek_adatok>
+    <Rendeles_adatok Rszam="1" VevoId="1" TermekId="1">
+        <Leiras>Teszt</Leiras>
+    </Rendeles_adatok>
+    <Rendeles_adatok Rszam="11" VevoId="0" TermekId="3">
+        <Leiras>Csoki vétel</Leiras>
+    </Rendeles_adatok>
+</webshop_t>

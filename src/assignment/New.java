@@ -2,8 +2,10 @@ package assignment;
 
 
 
-import assignment.model.Vevo_adatok;
-import assignment.model.Webshop;
+import assignment.model.Rendeles;
+import assignment.model.Termek;
+import assignment.model.Vevo;
+import assignment.model.WebshopT;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -16,42 +18,45 @@ public class New {
     public static void main(String[] args) {
 
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Webshop.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(WebshopT.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
             // We had written this file in marshalling example
-            Webshop webshop = (Webshop) jaxbUnmarshaller.unmarshal(new File(XML_PATH));
+            WebshopT webshopT = (WebshopT) jaxbUnmarshaller.unmarshal(new File(XML_PATH));
 
-            Vevo_adatok vevo_adatok = new Vevo_adatok();
-            vevo_adatok.setVid(3);
-            vevo_adatok.setNév("Név TESZT");
-            vevo_adatok.setCím("ABC");
-            vevo_adatok.setKor(24);
-            vevo_adatok.setEmail("bottyan94@gmail.com");
-            vevo_adatok.setTel("+36308990872");
-            vevo_adatok.setDeleted(false);
+            Vevo vevo = new Vevo();
+            vevo.setNev("Teszt Hozzáadás");
+            vevo.setKor(1);
+            vevo.setTel("123");
+            vevo.setEmail("asd@asddsadsa.com");
+            vevo.setCim(null);
+            vevo.setVid("0");
+            webshopT.getVevoAdatok().add(vevo);
+
+            Termek termek = new Termek();
+            termek.setLeiras("Csoki");
+            termek.setMegnevezes("Csokito rondade finom");
+            termek.setAr("250");
+            termek.setTid("3");
+            webshopT.getTermekAdatok().add(termek);
+
+            Rendeles rendeles = new Rendeles();
+            rendeles.setLeiras("Csoki vétel");
+            rendeles.setVevoId(vevo.getVid());
+            rendeles.setTermekId(termek.getTid());
+            rendeles.setDatum(null);
+            rendeles.setRszam("11");
+            webshopT.getRendelesAdatok().add(rendeles);
 
 
-            webshop.getWebshop().add(vevo_adatok);
-
-            System.out.println("-------------------------- ");
-            System.out.println("Új elem: ");
-            System.out.println("Id :"+vevo_adatok.getVid());
-            System.out.println("Név :"+vevo_adatok.getNév());
-            System.out.println("Cím :"+vevo_adatok.getCím());
-            System.out.println("Kor :"+vevo_adatok.getKor());
-            System.out.println("Email :"+vevo_adatok.getEmail());
-            System.out.println("Telefonszám :"+vevo_adatok.getTel());
-
-
-            jaxbContext = JAXBContext.newInstance(Webshop.class);
+            jaxbContext = JAXBContext.newInstance(WebshopT.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 
             // Marshal the webshop list in file
-            jaxbMarshaller.marshal(webshop, new File(XML_PATH));
+            jaxbMarshaller.marshal(webshopT, new File(XML_PATH));
 
         } catch (Exception e) {
             e.printStackTrace();
